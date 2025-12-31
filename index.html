@@ -3,116 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juego</title>
+  <title>Adiós 2025</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(rgba(15,32,39,0.75), rgba(44,83,100,0.75)),
+                  url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #f1f1f1;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
-      color: #333;
-      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #d63384;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    .game-container {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    h1 span {
+      color: #ffb703;
     }
 
-    .box {
-      width: 100px;
-      height: 100px;
-      background-color: #ffb6c1;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 2rem;
-      transition: transform 0.2s, background-color 0.3s;
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      text-align: justify;
     }
 
-    .box:hover {
-      transform: scale(1.1);
-      background-color: #ffa6b9;
+    .signature {
+      margin-top: 30px;
+      text-align: right;
+      font-style: italic;
+      opacity: 0.85;
     }
 
-    .message {
-      margin-top: 2rem;
+    .year {
+      text-align: center;
+      margin-top: 30px;
       font-size: 1.2rem;
-      color: #444;
-      max-width: 300px;
-      min-height: 60px;
-      line-height: 1.5;
+      opacity: 0.7;
     }
 
-    button {
-      margin-top: 2rem;
-      background-color: #d63384;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #b82e73;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Elige una caja 🎁</h1>
-  <div class="game-container">
-    <div class="box">🎁</div>
-    <div class="box">🎁</div>
-    <div class="box">🎁</div>
+  <div class="card">
+    <h1>Despedida <span>2025</span></h1>
+
+    <p>
+      Este año se va, y con él se quedan muchas cosas que no fueron como imaginé.
+      Entre ellas, nosotros. No escribo esto para volver, ni para prometer nada,
+      solo para cerrar un capítulo que fue importante para mí.
+    </p>
+
+    <p>
+      Gracias por los momentos buenos, por las risas, por las conversaciones
+      largas y por todo lo que, aunque hoy duela un poco, valió la pena vivir.
+      Fuiste parte de mi 2025 y eso no se borra.
+    </p>
+
+    <p>
+      Hoy entiendo que a veces amar también es soltar. Desearte lo mejor, incluso
+      cuando ya no soy parte de tu camino. Ojalá la vida te regale todo lo que
+      mereces, incluso aquello que no pude darte.
+    </p>
+
+    <p>
+      Me quedo con lo aprendido, con lo sentido y con la tranquilidad de haber
+      querido de verdad.
+    </p>
+
+    <div class="signature">
+      — Con cariño
+    </div>
+
+    <div class="year">
+      Fin de 2025
+    </div>
   </div>
-  <div class="message"></div>
-  <button id="reset">Jugar otra vez</button>
-
-  <script>
-    const boxes = document.querySelectorAll('.box');
-    const message = document.querySelector('.message');
-    const resetBtn = document.getElementById('reset');
-
-    const surprises = [
-      "Puedes pedirme lo que quieras",
-      "Premio sorpresa: una sonrisa mía 😏",
-      "si le diste a esta caja puedo pedirte lo que quiera, cuando quiera",
-      "Error 404: beso no encontrado... inténtalo de nuevo 😜",
-    ];
-
-    boxes.forEach(box => {
-      box.addEventListener('click', () => {
-        const random = surprises[Math.floor(Math.random() * surprises.length)];
-        message.textContent = random;
-        boxes.forEach(b => b.style.pointerEvents = 'none');
-      });
-    });
-
-    resetBtn.addEventListener('click', () => {
-      message.textContent = "";
-      boxes.forEach(b => b.style.pointerEvents = 'auto');
-    });
-  </script>
 </body>
 </html>
+
+
 
 
 
